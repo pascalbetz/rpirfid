@@ -25,7 +25,7 @@ When stopping the reader it might actually take some seconds until it follows yo
 
 ## Usage
 
-
+```
 reader = RpiRfid::Reader.new('/dev/mydevice')
 reader.on_id_read do |id|
   puts "somebody just flashed the RFID tag with ID #{id}"
@@ -35,7 +35,7 @@ reader.start
 ...
 ...
 reader.stop # might take some second
-
+```
 
 ## Contributing
 
