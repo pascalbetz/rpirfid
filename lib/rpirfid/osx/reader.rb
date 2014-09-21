@@ -1,7 +1,9 @@
 require 'serialport'
 
-class Rpi::Rfid::Reader < Rpi::Rfid::Base
-  def start
+class RpiRfid::Reader < RpiRfid::Base
+  private
+
+  def run
     Thread.new do
       SerialPort.open(device, 'baud' => baud) do |port|
         port.read_timeout = 1000

@@ -1,13 +1,16 @@
 require 'wiringpi'
 
-class Rpi::Rfid::Reader < Rpi::Rfid::Base
-  def start
+class RpiRfid::Reader < RpiRfid::Base
+
+  private
+
+  def run
     Thread.new do
       begin
         port = WiringPi::Serial.new(device, baud)
         while running?
           char = port.serialGetchar
-          value = if char == -1
+          value = if char == -1 # timeout
             nil
           else
             char.chr

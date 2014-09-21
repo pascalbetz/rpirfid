@@ -1,10 +1,9 @@
-class Rpi::Rfid::Base
+class RpiRfid::Base
   attr_reader :device, :baud
 
   def initialize(device)
     @baud = 2400
     @device = device
-    @running = true
   end
 
   def on_id_read(&block)
@@ -14,11 +13,14 @@ class Rpi::Rfid::Base
   end
 
   def start
-    raise "implemenent in subclass"
+    @running = true
+    run
+    nil
   end
 
   def stop
     @running = false
+    nil
   end
 
   def running?
@@ -26,6 +28,11 @@ class Rpi::Rfid::Base
   end
 
   private
+
+
+  def run
+    raise "implemenent in subclass"
+  end
 
   def data_read(data)
     case data
