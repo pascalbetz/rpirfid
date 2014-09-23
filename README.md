@@ -1,4 +1,4 @@
-# Rpi::Rfid
+# RpiRfid
 
 A tiny wrapper for Parallax RFID reader on Raspberry PI. It uses a thread to make it look like it's non-blocking.
 
